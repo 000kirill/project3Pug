@@ -1,0 +1,21 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Сайт на Pug 
+    link(rel="stylesheet", href="../style.css")   
+  body 
+    - let games = [{title: "The Witcher 3: Wild Hunt", releasDate: "19 мая 2015", picture: "theWitcher.jpg"}, {title: "Cyberpunk 2077", releasDate: "10 декабря 2020", picture: "cyberpunk.jpg"}, {title: "The Elder Scrolls V: Skyrim", releasDate: "11 ноября 2011", picture: "skyrim.jpg"}, {title: "Grand Theft Auto V", releasDate: "17 сентября 2013", picture: "gtaV.jpg"}, {title: "Portal 2", releasDate: "19 апреля 2011", picture: "portal.jpg"}, {title: "Far Cry 3", releasDate: "29 ноября 2012", picture: "farCry.jpg"}, {title: "Red Dead Redemption II", releasDate: "26 октября 2018", picture: "redDead.jpg"}, {title: "Half-Life 2", releasDate: "16 ноября 2004", picture: "halfLife.jpg"}, {title: "Assassin's Creed", releasDate: "13 ноября 2007", picture: "assassin.jpg"}]
+    div(class="container")
+        h1(class="title") Мои любимые игры
+        p Текст про игры 
+        ul(class="grid")
+          each game in games 
+            li(class="grid_item")
+              article(class="card")
+                a(class="card_image", href="")
+                  img(src=`../${game.picture}`)
+                h2(class="card_title")
+                  a(href="") #{game.title}
+                span(class="card_date") Дата выпуска: #{game.releasDate}
